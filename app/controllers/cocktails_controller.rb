@@ -3,6 +3,7 @@ class CocktailsController < ApplicationController
 
   def index
     @cocktails = Cocktail.all
+    @cocktails = @cocktails.where("name like ?", "%#{params[:term]}%") if params[:term]
   end
 
   def show
