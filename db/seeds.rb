@@ -20,7 +20,7 @@ cocktails = JSON.load(open("http://www.thecocktaildb.com/api/json/v1/1/filter.ph
 def create_new_cocktail(cocktail_h)
   new_cocktail = {
     name:       cocktail_h['strDrink'],
-    categrory:  cocktail_h['strAlcoholic'],
+    category:  cocktail_h['strAlcoholic'],
     alcoholic:  cocktail_h['strAlcoholic'] == 'Alcoholic',
     glass_type: cocktail_h['strGlass'],
     image_url:  cocktail_h['strDrinkThumb'],
