@@ -1,6 +1,6 @@
 <!-- <p id="notice"><%= notice %></p> -->
 
-<h1><%= @cocktail.name %></h1>
+<h1><%= @cocktail.name.capitalize %></h1>
 <h3>Ingredients</h3>
 <ul>
   <% @cocktail.ingredients.each do |ingredient| %>
@@ -10,9 +10,10 @@
 <h3>Recipe</h3>
 <ul>
   <% @cocktail.doses.each do |dose| %>
-    <li><%= dose.description %></li>
+    <li><%= dose.description %> of <%= dose.ingredient.name %></li>
   <% end %>
 </ul>
+<%= link_to 'Add a dose', new_cocktail_dose_path(@cocktail), class: 'btn btn-primary' %>
 <%= link_to 'Edit', edit_cocktail_path(@cocktail) %> |
 <%= link_to 'Back', cocktails_path %>
 

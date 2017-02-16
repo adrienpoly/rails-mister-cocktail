@@ -6,7 +6,7 @@
   </div>
   <div class="form-doses">
     <h3>Doses</h3>
-    <ul>
+    <ul class='list-unstyled'>
       <% @cocktail.doses.each do |dose| %>
         <li><%= dose.description %></li>
       <% end %>

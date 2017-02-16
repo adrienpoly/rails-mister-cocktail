@@ -12,12 +12,11 @@
   <tbody>
     <% @cocktails.each do |cocktail| %>
       <tr>
-        <h2><%= cocktail.name %></h2>
+        <h2><%= link_to cocktail.name.capitalize, cocktail_path(cocktail) %></h2>
       </tr>
       <tr>
-        <td><%= link_to 'Show', cocktail %></td>
         <td><%= link_to 'Edit', edit_cocktail_path(cocktail) %></td>
-        <td><%= link_to 'Destroy', cocktail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', cocktail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
