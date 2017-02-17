@@ -25,7 +25,7 @@ def create_new_cocktail(cocktail_h)
       dose = Dose.new
       dose.cocktail = cocktail
       dose.description = cocktail_h['strMeasure' + i.to_s]
-      break if dose.description.empty?
+      break if dose.description.nil? || dose.description.empty?
       dose.ingredient = Ingredient.find_by(name: cocktail_h['strIngredient' + i.to_s])
       dose.save
     end
