@@ -2,8 +2,11 @@ class CocktailsController < ApplicationController
   before_action :set_cocktail, only: [:show, :edit, :update, :destroy]
 
   def index
-    @cocktails = Cocktail.all
-    @cocktails = @cocktails.where("name like ?", "%#{params[:term]}%") if params[:term]
+    # @cocktails = Cocktail.all
+    @cocktails = Cocktail.order(:name).page params[:page]
+    @cocktails = @cocktails.where("name like ?", "%#{params[:term]}%").page if params[:term]
+    @cocktails = Ingredient.find(params[:ingredient]).cocktails.page if params[:ingredient]
+
   end
 
   def show

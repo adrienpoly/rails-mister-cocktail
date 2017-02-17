@@ -11,11 +11,13 @@
           </div>
           <div class="card-category"><%= cocktail.category %></div>
           <%= link_to '', cocktail_path(cocktail), class: 'card-link' %>
-      <!-- <a class="card-link" href="#" ></a> -->
-
         </div>
       </div>
     <% end %>
+  </div>
+  <div class="paginate-center">
+      <%= paginate @cocktails %>
+
   </div>
 </div>
 
