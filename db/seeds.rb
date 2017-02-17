@@ -60,5 +60,5 @@ def scrap_ingredients
 end
 
 scrap_ingredients
-scrap_cocktail_detail(JSON.load(open(BASE_URL + "filter.php?c=Cocktail"))['drinks'].first(5))
-scrap_cocktail_detail(JSON.load(open(BASE_URL + "filter.php?c=Ordinary_Drink"))['drinks'].first(5))
+scrap_cocktail_detail(JSON.load(open(BASE_URL + "filter.php?c=Cocktail"))['drinks'])
+scrap_cocktail_detail(JSON.load(open(BASE_URL + "filter.php?c=Ordinary_Drink"))['drinks'])
