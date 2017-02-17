@@ -8,7 +8,7 @@
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
     <%#= link_to 'Alcoholic cocktails', cocktails_path, class: 'navbar-wagon-item navbar-wagon-link' %>
-
+    <%= link_to 'Api', cocktails_path(format: :json) %>
     <!-- Search form -->
     <form action="/cocktails/search" class="navbar-wagon-search">
       <input type="text" name="term" class="navbar-wagon-search-input" placeholder="Search something">
