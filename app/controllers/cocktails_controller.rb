@@ -3,11 +3,11 @@ class CocktailsController < ApplicationController
 
   def index
     # @cocktails = Cocktail.all
-    @cocktails = Cocktail.order(:name).page params[:page]
+    @cocktails = Cocktail.order(:name)
     @cocktails = @cocktails.where("lower(cocktails.name) like ?", "%#{params[:term].downcase}%").page if params[:term]
     @cocktails = Ingredient.find(params[:ingredient]).cocktails.page if params[:ingredient]
     respond_to do |format|
-      format.html  # index.html.erb
+      format.html  { @cocktails = @cocktails.page params[:page] }# index.html.erb
       format.json  { render json: @cocktails }
     end
   end
