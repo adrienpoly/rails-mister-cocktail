@@ -2,6 +2,9 @@
 //= require jquery_ujs
 //= require jquery-ui
 // require jquery-ui/autocomplete
+//= require jquery-fileupload/basic
+//= require cloudinary/jquery.cloudinary
+//= require attachinary
 //= require autocomplete-rails
 //= require turbolinks
 //= require bootstrap-sprockets

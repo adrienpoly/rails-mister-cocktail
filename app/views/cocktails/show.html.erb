@@ -3,12 +3,15 @@
 <h1 class='text-center'><%= @cocktail.name.capitalize %></h1>
 <p>categrory : <%= @cocktail.category %></p>
 <p>instructions : <%= @cocktail.instructions %></p>
+<% if @cocktail.photo? %>
+  <%= cl_image_tag @cocktail.photo.path, width: 200, height: 300, crop: :fill %>
+<% end %>
 
 <h3>Recipe</h3>
 <ul>
   <% @cocktail.doses.each do |dose| %>
     <li><%= dose.description %> of <%= dose.ingredient.name %>
-      <%#= link_to 'delete', dose_path(dose), method: :delete, data: { confirm: 'Are you sure?' } %>
+      <%= link_to 'delete', dose_path(dose), method: :delete, data: { confirm: 'Are you sure?' } %>
     </li>
   <% end %>
 </ul>
