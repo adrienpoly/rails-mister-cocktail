@@ -4,7 +4,7 @@ class CocktailsController < ApplicationController
   def index
     # @cocktails = Cocktail.all
     @cocktails = Cocktail.order(:name).page params[:page]
-    @cocktails = @cocktails.where("name like ?", "%#{params[:term]}%").page if params[:term]
+    @cocktails = @cocktails.where("lower(cocktails.name) like ?", "%#{params[:term].downcase}%").page if params[:term]
     @cocktails = Ingredient.find(params[:ingredient]).cocktails.page if params[:ingredient]
 
   end
