@@ -7,15 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'open-uri'
 
-# ingredients = JSON.load(open("http://www.thecocktaildb.com/api/json/v1/1/list.php?i=list"))['drinks']
+base_url = "http://www.thecocktaildb.com/api/json/v1/1/lookup.php?"
 
-# ingredients.each do |ingredient|
-#   Ingredient.create(name: ingredient['strIngredient1'])
-# end
-
-base_url = "http://www.thecocktaildb.com/api/json/v1/1/lookup.php?i="
-
-cocktails = JSON.load(open("http://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Cocktail"))['drinks'].first(10)
+# cocktails = JSON.load(open(base_url + "c=Cocktail"))['drinks'].first(10)
 
 def create_new_cocktail(cocktail_h)
   new_cocktail = {
@@ -29,10 +23,23 @@ def create_new_cocktail(cocktail_h)
   Cocktail.create(new_cocktail)
 end
 
-cocktails.each do |cocktail|
-  cocktail_h = JSON.load(open(base_url+cocktail["idDrink"]))['drinks'].first
+def scrap_cocktail_detail(cocktails)
+  cocktails.each do |cocktail|
+    cocktail_h = JSON.load(open(base_url + 'i=' + cocktail["idDrink"]))['drinks'].first
   create_new_cocktail(cocktail_h)
 end
+
+def scrap_ingredients
+  ingredients = JSON.load(open(base_url + "i=list"))['drinks']
+
+  ingredients.each do |ingredient|
+    Ingredient.create(name: ingredient['strIngredient1'])
+  end
+end
+
+scrap_ingredients
+scrap_cocktail_detail(JSON.load(open(base_url + "c=Cocktail"))['drinks'].first(10))
+scrap_cocktail_detail(JSON.load(open(base_url + "c=Ordinary_Drink"))['drinks'].first(10))
 
 
 

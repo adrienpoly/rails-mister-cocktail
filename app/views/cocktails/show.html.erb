@@ -12,7 +12,8 @@
     </li>
   <% end %>
 </ul>
-<%#= link_to 'Add a dose', new_cocktail_dose_path(@cocktail), class: 'btn btn-primary' %>
-<%= link_to 'Edit', edit_cocktail_path(@cocktail) %> |
+<%= render 'doses/form', dose: @dose %>
+<%= link_to 'Add a dose', new_cocktail_dose_path(@cocktail), class: 'btn btn-primary' %>
+<%= link_to 'Edit cocktail', edit_cocktail_path(@cocktail) %> |
 <%#= link_to 'Back', cocktails_path %>
 

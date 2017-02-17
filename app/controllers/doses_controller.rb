@@ -26,7 +26,7 @@ class DosesController < ApplicationController
       redirect_to cocktail_path(@dose.cocktail_id), notice: 'Dose was successfully created.'
     else
       flash[:alert] = 'Invalid dose.'
-      render :new
+      render 'cocktails/show'
     end
   end
 
