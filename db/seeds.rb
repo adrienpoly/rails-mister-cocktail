@@ -1,7 +1,8 @@
 require 'open-uri'
 
-Ingredient.destroy_all
 Dose.destroy_all
+
+Ingredient.destroy_all
 Cocktail.destroy_all
 
 BASE_URL = "http://www.thecocktaildb.com/api/json/v1/1/"
