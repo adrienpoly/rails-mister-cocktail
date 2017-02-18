@@ -7,6 +7,7 @@
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
+    <%= link_to 'Api', cocktails_path(format: :json), class: "navbar-wagon-item navbar-wagon-link" %>
     <%#= link_to 'Alcoholic cocktails', cocktails_path, class: 'navbar-wagon-item navbar-wagon-link' %>
     <!-- Search form -->
     <form action="/cocktails/search" class="navbar-wagon-search">
@@ -16,7 +17,6 @@
       </button>
     </form>
 
-    <%= link_to 'Api', cocktails_path(format: :json) %>
     <!-- Notification -->
 
     <!-- Button (call-to-action) -->
