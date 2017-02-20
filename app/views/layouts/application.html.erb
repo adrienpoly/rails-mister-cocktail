@@ -26,8 +26,7 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%#= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= cloudinary_js_config %>
+    <%#= cloudinary_js_config %>
 
   </head>
 
@@ -39,6 +38,7 @@
           <%= yield %>
       </div>
     </div>
-      <%= yield(:after_js) %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= yield(:after_js) %>
   </body>
 </html>
